@@ -1,0 +1,15 @@
+{
+  "name": "debug_proxy",
+  "version": "1.0.0",
+  "description": "Simple debugging proxy with hoxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Windstalker",
+  "license": "MIT",
+  "dependencies": {
+    "hoxy": "^3.2.0",
+    "yargs": "^4.7.0"
+  }
+}
