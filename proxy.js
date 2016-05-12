@@ -1,14 +1,18 @@
-var argv = require('yargs').argv;
+var path = require('path');
+var argv = require('yargs')
+  .string('config')
+  .argv;
 var hoxy = require('hoxy');
 var port = argv.port || 5005;
 var proxy = hoxy.createServer().listen(port);
-var config;
+var config = path.resolve(argv.config ? argv.config : '');
 
 try {
-  config = require(argv.config);
+  config = require(config);
 } catch (err) {
-  console.error('Please, specify path to config.json!');
-  throw err;
+  console.log('Please, specify valid path to config.json!');
+  console.log(err);
+  process.exit();
 }
 
 console.log('proxy started at ' + port.toString() + ' port');
