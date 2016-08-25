@@ -1,11 +1,12 @@
 var path = require('path');
 var argv = require('yargs')
   .string('config')
+  .number('port')
   .argv;
 var hoxy = require('hoxy');
 var port = argv.port || 5005;
 var proxy = hoxy.createServer().listen(port);
-var config = path.resolve(argv.config ? argv.config : '');
+var config = path.resolve(argv.config ? argv.config : 'config.json');
 
 try {
   config = require(config);
